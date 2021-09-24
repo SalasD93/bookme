@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/tailwind.css">
+  <title>BookMe!</title>
+</head>
+
+<body>
+    <header class="font-semibold text-xl tracking-tight flex-col">
+      <nav class="w-full flex justify-between">
+        <h1 class="">
+          <a href="/" class="text-2xl font-semibold tracking-tight">Book<span class="text-green-500">Me</span></a>
+        </h1>
+        {{#if loggedIn}}
+        <button id="logout" class="btn-no-style text-2xl font-semibold tracking-tight">Logout</button>
+        {{else}}
+        <a href="/login" id="loginDisplay" class="text-2xl font-semibold tracking-tight">Login</a>
+        {{/if}}
+      </nav>
+      <ul class="grid grid-cols-2 md:grid-cols-5 py-4">
+        <li class="px-4 text-green-300 hover:text-green-700 transform transition duration-600 hover:scale-125">
+          <a href="/">Homepage</a>
+        </li>
+        <li class="px-4 text-green-300 hover:text-green-700 transform transition duration-600 hover:scale-125">
+          <a href="/dashboard">Dashboard</a>
+        </li>
+        <li class="px-4 text-green-300 hover:text-green-700 transform transition duration-600 hover:scale-125">
+          <a href="/club">Book Club</a>
+        </li>
+        <li class="px-4 text-green-300 hover:text-green-700 transform transition duration-600 hover:scale-125">
+          <a href="/profile">Profile</a>
+        </li>
+        <li class="px-4 text-green-300 hover:text-green-700 transform transition duration-600 hover:scale-125">
+          <a id="near-me" href="/location">Near Me</a>
+        </li>
+      </ul>
+      {{!-- {{/if}} --}}
+    </header>
+  <div class="bg-gray-400">
+    <main class="h-full">
+      {{{ body }}}
+    </main>
+    <footer>
+      Made with ❤ 2021 All rights reserved. Abhinav Biju | Diana Salas | Malik Harris | Tysean Hill.
+    </footer>
+  </div>
+  
+  {{!-- <script src="/javascript/location.js"></script> --}}
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+
+  
+</body>
+
+</html>

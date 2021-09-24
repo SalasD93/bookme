@@ -1,0 +1,43 @@
+{
+  "name": "um-project-2",
+  "version": "1.0.0",
+  "description": "bookme",
+  "main": "server.js",
+  "scripts": {
+    "build:css": "tailwind build public/src/style.css -o public/stylesheets/tailwind.css",
+    "seed": "node seeds/index.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SalasD93/um-project-2.git"
+  },
+  "author": "Diana Salas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SalasD93/um-project-2/issues"
+  },
+  "homepage": "https://github.com/SalasD93/um-project-2#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cloudinary": "^1.27.0",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "express-session": "^1.17.2",
+    "express.js": "^1.0.0",
+    "handlebars": "^4.7.7",
+    "mysql": "^2.18.1",
+    "multer": "^1.4.3",
+    "mysql2": "^2.3.0",
+    "path": "^0.12.7",
+    "postcss-import": "^14.0.2",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.4",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.15"
+  }
+}

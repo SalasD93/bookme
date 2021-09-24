@@ -1,0 +1,14 @@
+
+<div class="post grid grid-cols-1 items-center w-full md:w-2/3 h-full text-2xl text-center p-12 px-10 bg-white rounded-lg shadow-xl wrapper">
+<img class="object-center grid-rows-2 mx-auto " src="/assets/bookBg.jpeg"> 
+<p class="grid-rows-1">A place to sell your books and create book clubs with people who have similar interests either online or near you!</p>
+</div>
+
+
+<ol class="post-list grid grid-cols-1 md:grid-cols-2 px-4 gap-5 wrapper">
+  {{#each posts as |post|}}
+  <li class="grid-span-1">
+    {{> post-info post }}
+  </li>
+  {{/each}}
+</ol>

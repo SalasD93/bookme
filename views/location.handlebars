@@ -1,0 +1,27 @@
+<div class="flex justify-center">
+    <div class="w-full max-w-xs">
+        <p class="bg-green-600 p-4 text-white font-bold text-xl text-center">To use the location feature, please enter your zip code or accept location.</p>
+        <form class="zip-submit bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="zip-code">Enter Zip Code:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="zip-code" placeholder="90210" />
+        </div>
+        <div class="flex items-center justify-center">
+            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline">ENTER</button>
+        </div>
+        </form>
+    </div>
+</div>
+
+{{!-- need to indicate if the pin is selling a book or part of book club need to include genre on pin hover ?use modal?--}}
+<div class="flex justify-center map">
+    <div class="grid grid-rows">
+        <div class="grid grid-col-12 gap-4"></div>
+            <div class="col-start-2 col-end-12" id="map"></div>
+        </div>
+    </div>
+</div>
+        
+<script src="/javascript/location.js"></script>
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGjt8MdI_N4adowcL8ig1YcWWSkzGm3Tg&callback=initMap&v=weekly" async></script>
