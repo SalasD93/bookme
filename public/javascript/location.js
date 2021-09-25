@@ -157,6 +157,7 @@ async function setMarkers(map) {
 document.querySelector('.zip-submit').addEventListener('submit', getCoordinates);
 
 // Need to add a {{#if logedin}} button to the header with an id="near-me"
-document.querySelector('#near-me').addEventListener('click', getLocation);
+//changed document.querySelector to window and changed click to load to have function run after handlebars loads
+window.addEventListener('load', getLocation);
 
 // getLocation();
