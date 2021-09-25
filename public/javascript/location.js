@@ -6,12 +6,12 @@ async function getCoordinates(event) {
     const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${zipCode}&key=AIzaSyBGjt8MdI_N4adowcL8ig1YcWWSkzGm3Tg`);
 
     const convertedZip = await response.json();
-    console.log(convertedZip);
+    // console.log(convertedZip);
     // Need to have lat and lon saved to table related to User
     const latitude = convertedZip.results[0].geometry.location.lat;
-    console.log(latitude);
+    // console.log(latitude);
     const longitude = convertedZip.results[0].geometry.location.lng;
-    console.log(longitude);
+    // console.log(longitude);
     const coords = await fetch(`/api/location`, {
         method: 'POST',
         body: JSON.stringify({
@@ -22,16 +22,16 @@ async function getCoordinates(event) {
             'Content-Type': 'application/json'
         }
     });
-    return console.log(coords);
+    initMap(latitude, longitude);
 
-    const city = convertedZip.results[0].formatted_address;
-    console.log(city);
-    // This separates the city information and puts it in an array
-    const cityName = city.split(' ');
-    console.log(cityName);
-    // This takes out the city and state from the split need to display on page
-    const dispCity = cityName[0] + ' ' + cityName[1];
-    console.log(dispCity);
+    // const city = convertedZip.results[0].formatted_address;
+    // console.log(city);
+    // // This separates the city information and puts it in an array
+    // const cityName = city.split(' ');
+    // console.log(cityName);
+    // // This takes out the city and state from the split need to display on page
+    // const dispCity = cityName[0] + ' ' + cityName[1];
+    // console.log(dispCity);
 }
 
 // This function gets the coordinates based off geolocation confirmed by the user when they click on 'near me' button
@@ -56,16 +56,27 @@ async function getLocation() {
                     'Content-Type': 'application/json'
                 }
             })
+            return initMap(latitude, longitude);
         });
     } else {
         console.log('geolocation not available');
     }
 }
 
-function initMap(coords) {
+function initMap(latitude, longitude) {
     // Use to set the center of the map to the current user's location / Need to get from stored values in table of lat and lon
-    // const currentUser = {lat: user.latitude, lng: user.longitude};
-    const currentUser = { lat: 27.88, lng: -82.8 };
+    let currentUser = {};
+    if(latitude == null || latitude == '' || latitude == undefined) {
+    currentUser = { lat: 27.88, lng: -82.8 };
+    } else {
+    currentUser = { lat: Number(latitude), lng: Number(longitude) };
+    }
+    // latitude = Number(latitude);
+    // longitude = Number(longitude);
+    // const currentUser = { lat: latitude, lng: longitude };
+    // const currentUser = { lat: 27.88, lng: -82.8 };
+    console.log(currentUser);
+    // const currentUser = coords;
     const map = new google.maps.Map(document.getElementById("map"), {
         // This sets the zoom distance in the map
         zoom: 10,
@@ -133,7 +144,7 @@ async function setMarkers(map) {
             title: user[5],
             zIndex: zIndex
         });
-        console.log(marker);
+        // console.log(marker);
         // Add a click listener for each marker
         marker.addListener("click", () => {
             console.log("Marker clicked");
