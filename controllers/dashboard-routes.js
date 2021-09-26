@@ -3,12 +3,6 @@ const sequelize = require("../config/connection");
 const { Post, User, Comment, Vote, Book, BookClub, BookClubMember, Location } = require("../models");
 const withAuth = require("../utils/auth");
 
-// get all posts for dashboard
-
-router.get('/', (req, res) => {
-  res.render('dashboard');
-});
-
 // get all user info for dashboard
 router.get("/", withAuth, (req, res) => {
   console.log(req.session);
@@ -16,51 +10,21 @@ router.get("/", withAuth, (req, res) => {
   User.findOne({
     attributes: { exclude: ["password"] },
     where: {
-      id: req.params.id,
+      id: req.session.user_id
     },
-    include: [
-      {
-        model: Post,
-        attributes: ["id", "book_name", "book_author", "price", "content", "created_at"],
-      },
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "created_at"],
-        include: {
-          model: Post,
-          attributes: ["book_name"],
-        },
-      },
-      {
-        model: Post,
-        attributes: ["book_name"],
-        through: Vote,
-        as: "voted_books",
-      },
-      {
-        model: Book,
-        attributes: ["id", "title", "author", "created_at"],
-      },
-      {
-        model: BookClub,
-        as: "started_clubs",
-        attributes: ["name", "genre", "description", "owner_id"],
-      },
-      {
-        model: BookClub,
-        attributes: ["name", "owner_id"],
-        as: "joined_clubs",
-        through: BookClubMember,
-      },
-    ],
+    include: [{
+      model: Post,
+      attributes: ["id", "book_name", "book_author", "price", "content", "created_at"]
+    }]
   }).then((dbUserData) => {
-    if (!dbUserData) {
-      res.status(404).json({ message: "No user found with this id" });
-      return;
-    }
-    const userInfo = dbUserData.map((user) => user.get({ plain: true }));
-
-    res.render("dashboard", { userInfo, loggedIn: true });
+    console.log(dbUserData)
+    const user = dbUserData.get({ plain: true });
+    console.log(user);
+    res.render('dashboard', { user , loggedIn: true });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
   });
 });
 
