@@ -23,7 +23,6 @@ Location.init(
       allowNull: false,
     },
     zIndex: {
-      // Need to limit increment
       type: DataTypes.INTEGER,
       allowNull: true,
     },
