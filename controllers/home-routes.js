@@ -109,6 +109,11 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/location", (req, res) => {
-  res.render("location");
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("location", {loggedIn: true});
 });
 module.exports = router;
