@@ -17,9 +17,7 @@ router.get("/", withAuth, (req, res) => {
       attributes: ["id", "book_name", "book_author", "price", "content", "created_at"]
     }]
   }).then((dbUserData) => {
-    console.log(dbUserData)
     const user = dbUserData.get({ plain: true });
-    console.log(user);
     res.render('dashboard', { user , loggedIn: true });
   })
   .catch(err => {
@@ -29,7 +27,6 @@ router.get("/", withAuth, (req, res) => {
 });
 
 router.get("/:id", withAuth, (req, res) => {
-  console.log(req.session);
   console.log("======================");
   User.findOne({
     attributes: { exclude: ["password"] },

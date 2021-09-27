@@ -4,7 +4,7 @@ const { User, Location} = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // Get all stored location /api/location
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     console.log('======================');
     Location.findAll({
     attributes: [
@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', withAuth, (req, res) => {
     console.log('======================');
     Location.findOne({
         where: {
@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
     });
 });
     
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     console.log('======================');
     Location.create({
         latitude: req.body.latitude,
@@ -67,7 +67,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.post('/:id', (req, res) => {
+router.post('/:id', withAuth, (req, res) => {
     console.log('======================');
     Location.update({
         latitude: req.body.latitude,
