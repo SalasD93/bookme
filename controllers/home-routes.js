@@ -109,4 +109,5 @@ router.get("/location", (req, res) => {
   }
   res.redirect("/");
 });
+
 module.exports = router;
