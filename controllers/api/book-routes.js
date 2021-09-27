@@ -12,7 +12,6 @@ router.get("/", (req, res) => {
       "title",
       "author",
       "created_at",
-      // [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE book.id = vote.post_id)"), "vote_count"],
       [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE book.id = vote.book_id)"), "vote_count"],
     ],
     include: [
@@ -30,6 +29,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
+  console.log('======================');
   Book.findOne({
     where: {
       id: req.params.id,
@@ -39,7 +39,6 @@ router.get("/:id", (req, res) => {
       "title",
       "author",
       "created_at",
-      // [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE book.id = vote.post_id)"), "vote_count"],
       [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE book.id = vote.book_id)"), "vote_count"],
     ],
     include: [
@@ -64,6 +63,7 @@ router.get("/:id", (req, res) => {
 
 router.post("/", withAuth, (req, res) => {
   // expects: {"author", "price", "user_id"},
+  console.log('======================');
   Book.create({
     title: req.body.title,
     author: req.body.author,
@@ -79,6 +79,7 @@ router.post("/", withAuth, (req, res) => {
 // commented out incase needed later
 router.put("/upvote", withAuth, (req, res) => {
   // custom static method created in models/Book.js
+  console.log('======================');
   Book.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
     .then((updatedVoteData) => res.json(updatedVoteData))
     .catch((err) => {
@@ -88,6 +89,7 @@ router.put("/upvote", withAuth, (req, res) => {
 });
 
 router.put("/:id", withAuth, (req, res) => {
+  console.log('======================');
   Book.update(
     {
       title: req.body.title,
@@ -114,7 +116,7 @@ router.put("/:id", withAuth, (req, res) => {
 });
 
 router.delete("/:id", withAuth, (req, res) => {
-  console.log("id", req.params.id);
+  console.log('======================');
   Book.destroy({
     where: {
       id: req.params.id,
