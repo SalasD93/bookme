@@ -1,18 +1,23 @@
-<section class="max-w-sm p-12 px-6 bg-white rounded-lg shadow-xl mx-auto">
-  <form class="login-form">
-    <div class="mb-4 block">
-      <label for="email-login">Email:</label>
-      <input type="text" id="email-login" />
-    </div>
-    <div class="mb-6 block">
-      <label for="password-login">Password:</label>
-      <input type="password" id="password-login" />
-    </div>
-    <div>
-      <button type="submit" class="mb-4 block">Login</button>
-    </div>
-  </form>
-  <a href="/signup" ><button class="block">Sign up</button></a>
+<section class="max-w-sm p-12 px-6 mx-auto flex justify-center">
+      <div class="w-full max-w-xs">
+        <p class="bg-green-600 p-4 text-white font-bold text-xl text-center">Login</p>
+        <form class="login-form bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="email-login">Email:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="email-login" placeholder="johnsmith@email.com" />
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="password-login">Password:</label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="password" id="password-login" placeholder="******************" />
+          </div>
+          <div class="flex items-center justify-center">
+            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-10 rounded focus:outline-none focus:shadow-outline">LOGIN</button>
+          </div>
+          <div class="flex items-center justify-center">
+            <a href="/signup" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline">Sign up</a>
+          </div>
+        </form>
+      </div>
 </section>
 
 <script src="/javascript/login.js"></script>
