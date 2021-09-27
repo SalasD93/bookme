@@ -3,11 +3,6 @@ const sequelize = require("../config/connection");
 const { Post, User, Comment, Vote } = require("../models");
 
 // get all posts for homepage
-  // res.render("homepage", {
-  //   // loggedIn: req.session.loggedIn,
-  // });
-
-
 router.get('/', (req, res) => {
   console.log('======================');
   Post.findAll({
@@ -55,7 +50,6 @@ router.get('/post/:id', (req, res) => {
       'content',
       'user_id',
       'created_at',
-      // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
   })
     .then(dbPostData => {
@@ -108,12 +102,11 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-router.get("/location", (req, res) => {
+router.get("/location", (req, res) => {  
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.render("location", {loggedIn: true});
     return;
   }
-
-  res.render("location", {loggedIn: true});
+  res.redirect("/");
 });
 module.exports = router;
