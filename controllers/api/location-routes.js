@@ -3,6 +3,7 @@ const sequelize = require("../../config/connection");
 const { User, Location} = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// Get all stored location /api/location
 router.get('/', (req, res) => {
     console.log('======================');
     Location.findAll({
@@ -20,7 +21,7 @@ router.get('/', (req, res) => {
     ]
     })
     .then(dbLocationData => res.json(dbLocationData))
-    .catch(err => {
+    .catch((err) => {
     console.log(err);
     res.status(500).json(err);
     });
@@ -46,28 +47,28 @@ router.get('/:id', (req, res) => {
         ]
     })
     .then(dbLocationData => res.json(dbLocationData))
-    .catch(err => {
+    .catch((err) => {
         console.log(err);
         res.status(500).json(err);
     });
 });
     
 router.post('/', (req, res) => {
-    console.log('Success');
+    console.log('======================');
     Location.create({
         latitude: req.body.latitude,
         longitude: req.body.longitude,
         user_id: req.session.user_id,            
     })
     .then(dbLocationData => res.json(dbLocationData))
-    .catch(err => {
+    .catch((err) => {
         console.log(err);
         res.status(500).json(err);
     });
 });
 
 router.post('/:id', (req, res) => {
-    console.log('Successful');
+    console.log('======================');
     Location.update({
         latitude: req.body.latitude,
         longitude: req.body.longitude,
@@ -79,7 +80,7 @@ router.post('/:id', (req, res) => {
         }
     })
     .then(dbLocationData => res.json(dbLocationData))
-    .catch(err => {
+    .catch((err) => {
         console.log(err);
         res.status(500).json(err);
     });
