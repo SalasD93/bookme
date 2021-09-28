@@ -157,7 +157,7 @@ footer {
   font-size: 110%;
 }
 
-.login-form{
+/* .login-form{
   display: inline-flexbox;
   max-width: 24rem;
   max-height: 32rem;
@@ -166,4 +166,4 @@ footer {
   border-radius: 0.5rem;
   background-color: #fff;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
+} */
