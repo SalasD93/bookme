@@ -71,8 +71,7 @@ function initMap(latitude, longitude) {
 async function setMarkers(map) {
     // Get the user information to use in the markers
     let response = await fetch('/api/location', (data) => {
-        method: 'GET',
-        console.log('location', data);
+        method: 'GET'
     });
     const users = await response.json();
 

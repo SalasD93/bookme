@@ -31,6 +31,17 @@ async function bookPostHandler(event) {
     }
 }
 
+async function getUserPosts() {
+  let response = await fetch('/api/post', (data) => {
+    method: 'GET';
+    where: {
+      id: req.session.user_id 
+    }
+  });
+  const posts = await response.json();
+  console.log(posts);
+}
+
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
   modal.style.display = "block";
