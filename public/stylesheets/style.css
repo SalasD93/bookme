@@ -2,11 +2,6 @@
 * {
     box-sizing: border-box;
 }
-
-#map {
-    height: 500px;
-    width: 500px;
-}
   
 body, html {
   height: 100%;
