@@ -1,7 +1,7 @@
 const sequelize = require("../config/connection");
 
 const { Vote } = require("../models");
-
+// Post vote seeds
 const votedata = [
   {
     user_id: 9,

@@ -2,6 +2,7 @@ const sequelize = require("../config/connection");
 
 const { Comment } = require("../models");
 
+// Comment seeds
 const commentdata = [
   {
     comment_text: "Nunc rhoncus dui vel sem.",
