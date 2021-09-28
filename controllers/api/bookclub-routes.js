@@ -30,6 +30,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
+  console.log("======================");
   BookClub.findOne({
     where: {
       id: req.params.id,
@@ -63,7 +64,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", withAuth, (req, res) => {
-  // expects {'Taskmaster goes public!', content: 'https://taskmaster.com/press', user_id: 1}
+  console.log("======================");
   BookClub.create({
     name: req.body.name,
     genre: req.body.genre,
@@ -76,19 +77,9 @@ router.post("/", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
-/* 
-router.put("/upvote", withAuth, (req, res) => {
-  // custom static method created in models/Post.js
-  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-    .then((updatedVoteData) => res.json(updatedVoteData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
- */
 
 router.put("/:id", withAuth, (req, res) => {
+  console.log("======================");
   BookClub.update(
     {
       name: req.body.name,
@@ -115,7 +106,7 @@ router.put("/:id", withAuth, (req, res) => {
 });
 
 router.delete("/:id", withAuth, (req, res) => {
-  console.log("id", req.params.id);
+  console.log("======================");
   BookClub.destroy({
     where: {
       id: req.params.id,
