@@ -71,19 +71,6 @@ router.get('/post/:id', (req, res) => {
     });
 });
 
-// // get single post
-// router.get("/post/:id", (req, res) => {
-//   res.render("single-post", {
-//     loggedIn: req.session.loggedIn,
-//   });
-// });
-
-// router.get("/posts", (req, res) => {
-//   res.render("posts", {
-//     loggedIn: req.session.loggedIn,
-//   });
-// });
-
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");

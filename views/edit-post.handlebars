@@ -1,0 +1,19 @@
+<article>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    Edit Post
+  </h2>
+  <form class="edit-post-form">
+    <div>
+      <input name="book-name" type="text" value="{{post.book_name}}" />
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="book-author" name="book-author" value="{{post.book_author}}" />
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="price" name="price" value="{{post.price}}" />
+      <textarea name="content" type="text">{{post.content}}</textarea>
+    </div>
+    <button type="submit" id="edit-post-btn">Save post</button>
+    <button type="button" class="delete-post-btn">Delete post</button>
+  </form>
+</article>
+
+<script src="/javascript/edit-post.js"></script>
+{{!-- <script src="/javascript/delete-post.js"></script> --}}

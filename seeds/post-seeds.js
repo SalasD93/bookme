@@ -2,7 +2,7 @@ const sequelize = require("../config/connection");
 // Add other required models to this existing const
 const { Post } = require("../models");
 
-// Add dummyData
+// Posts seeds
 const postdata = [
   {
     book_name: "Ugly",

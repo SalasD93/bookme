@@ -10,39 +10,14 @@ body, html {
   font-family: sans-serif;
   color: #333;
 }
-  
+
 nav h1 a {
   font-size: 3rem;
   margin-top: 2%;
 }
 
-.post-list {
-  margin: 0;
-  padding: 0;
-}
-
-textarea, input {
-  padding: .5%;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-textarea:focus, input:focus {
-  outline: none;
-  border: 1px solid #3486eb;
-}
-
-textarea {
-  min-width: 40%;
-  min-height: 100px;
-}
-
-form > div {
-  margin-bottom: 2%;
-}
-
-form label {
-  display: block;
+.header-links {
+  font-size: 1.5rem;
 }
 
 .wrapper {
@@ -62,91 +37,14 @@ header {
   padding: 0 1%;
 }
 
-header h1 {
-  font-size: 1em;
-}
-
 main {
   flex: 1;
   padding: 2% 4%;
 }
 
-.btn-no-style {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-  color: #225ca3;
-  font-size: 100%;
-  font-weight: bold;
-  transition: color .1s;
-  margin-left: 16px;
-}
-
-.btn-no-style:hover {
-  background: none;
-  color: #3486eb;
-}
-
-.delete-post-btn {
-  background-color: #d41414;
-}
-
-.delete-post-btn:hover {
-  background-color: #ff643d;
-}
-
 .post {
   margin-bottom: 2%;
   line-height: 150%;
-}
-
-.post .title span {
-  font-style: italic;
-  font-size: 90%;
-  color: #7d7d7d;
-}
-
-.edit-link {
-  display: block;
-  margin: -1.5% 0 2% 0;
-}
-
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
-}
-
-.comment-form {
-  margin-bottom: 5%;
-}
-
-.comment {
-  padding: 1%;
-  margin-bottom: 1%;
-}
-
-.comment:nth-child(odd) {
-  background-color: #fff5eb;
-}
-
-.comment .meta {
-  font-size: 90%;
-  margin-bottom: .5%;
-  opacity: .6;
-}
-
-.new-post-form input {
-  width: 300px;
-}
-
-.edit-post-form {
-  margin-bottom: 5%;
 }
 
 footer {
@@ -157,13 +55,13 @@ footer {
   font-size: 110%;
 }
 
-.login-form{
-  display: inline-flexbox;
-  max-width: 24rem;
-  max-height: 32rem;
-  margin: 0 auto;
-  padding: 2.5rem;
-  border-radius: 0.5rem;
-  background-color: #fff;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+@media screen and (max-width: 768px) {
+  .nav-a-font {
+    font-size: 2rem;
+  }
+  .header-links {
+    font-size: 1.25rem;
+  }
 }
+
+/* Diana Salas */

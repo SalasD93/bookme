@@ -1,7 +1,7 @@
 {{!-- Zip code form to convert zip into coordinates for map markers --}}
 <div class="flex justify-center">
     <div class="w-full max-w-xs">
-        <p class="bg-green-600 p-4 text-white font-bold text-xl text-center">To use the location feature, please enter your zip code or accept location.</p>
+        <p class="bg-green-600 p-4 text-white font-bold text-xl text-center">To see books near you, please enter your zip code or accept location.</p>
         <form class="zip-submit bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="zip-code">Enter Zip Code:</label>
@@ -16,10 +16,10 @@
 
 {{!-- need to indicate if the pin is selling a book or part of book club need to include genre on pin hover ?use modal?--}}
 {{!-- Displays map with pins --}}
-<div class="flex justify-center map">
-    <div class="grid grid-rows-1">
-        <div class="grid grid-col-12 gap-4"></div>
-            <div class="col-start-2 col-end-12" id="map"></div>
+<div class="flex justify-center">
+    <div>
+        <div></div>
+            <div id="map"></div>
         </div>
     </div>
 </div>
@@ -27,3 +27,4 @@
 <script src="/javascript/location.js"></script>
 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGjt8MdI_N4adowcL8ig1YcWWSkzGm3Tg&callback=initMap&v=weekly" async></script>
+{{!-- Diana Salas --}}

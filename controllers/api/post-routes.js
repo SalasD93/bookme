@@ -34,7 +34,7 @@ router.get("/:id", (req, res) => {
   console.log('=====================');
   Post.findOne({
     where: {
-      id: req.session.user_id,
+      id: req.params.user_id,
     },
     attributes: ["id", "book_name", "book_author", "price", "content", "user_id", "created_at"],
     include: [

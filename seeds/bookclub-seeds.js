@@ -2,7 +2,7 @@ const sequelize = require("../config/connection");
 // Add other required models to this existing const
 const { BookClub } = require("../models");
 
-// Add dummyData
+// Book club seeds
 const bookclubdata = [
   {
     name: "Andalax",

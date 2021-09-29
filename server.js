@@ -9,8 +9,10 @@ const PORT = process.env.PORT || 3001;
 const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+require("dotenv").config();
+
 const sess = {
-    secret: 'Super secret secret',
+    secret: process.env.SESS_SECRET,
     cookie: {maxAge: 60000},
     rolling: true,
     resave: false,
