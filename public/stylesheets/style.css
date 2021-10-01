@@ -60,7 +60,7 @@ footer {
   padding: 0 5px;
   border: dashed #000 1px;
   height: 75px;
-  overflow-x: none;
+  overflow-x: hidden;
   overflow-y: auto;
 }
 
