@@ -1,3 +1,4 @@
+// This updates edits to a post
 async function editPostHandler(event) {
     event.preventDefault();
     console.log('init');
@@ -30,4 +31,28 @@ async function editPostHandler(event) {
     }
 }
 
+// This deletes posts
+async function deleteFormHandler(event) {
+  event.preventDefault();
+
+  const id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
+  // This deletes a post by it's id when it is selected
+  const response = await fetch(`/api/posts/${id}`, {
+    method: 'DELETE'
+  });
+
+  if (response.ok) {
+    document.location.replace('/dashboard/');
+  } else {
+    alert(response.statusText);
+  }
+}
+
+// These listen to which button was clicked and initializes the corresponding function
 document.querySelector('.edit-post-form').addEventListener('submit', editPostHandler);
+
+document.querySelector('.delete-post-btn').addEventListener('click', deleteFormHandler);
+
+// Diana Salas //
