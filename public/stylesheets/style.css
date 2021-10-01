@@ -57,8 +57,15 @@ footer {
 
 /* This creates a scrollable area when there is more content than space */
 .list-group {
-  height:50px;
+  padding: 0 5px;
+  border: dashed #000 1px;
+  height: 75px;
+  overflow-x: none;
   overflow-y: auto;
+}
+
+.post-width {
+  width: 50vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -67,6 +74,9 @@ footer {
   }
   .header-links {
     font-size: 1.25rem;
+  }
+  .post-width {
+    width: 85vw;
   }
 }
 
