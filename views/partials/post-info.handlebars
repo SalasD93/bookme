@@ -1,10 +1,12 @@
-<article class="post h-full max-w-xl p-12 px-6 bg-white rounded-lg shadow-xl mx-auto">
-    <div>
-      <a href="/post/{{id}}"><h2>{{title}}</h2></a>
-    </div >
-      <p class="font-bold text-xl">{{book_name}}</p>
-      <p class="text-green-800">Author: {{book_author}}</p>
+<article class="post pb-6 bg-white rounded-lg shadow-xl">
+    <div class="bg-gray-700 text-center rounded-t py-2 mb-1">
+      <a href="/post/{{id}}" class="font-bold text-xl mb-2 rounded text-white"><h2>{{book_name}}</h2></a>
+    </div>
+    <div class="px-4">
+      <p class="text-red-800">Author: {{book_author}}</p>
       <p>Price: ${{price}}</p>
-      <p class="text-lg">{{content}}</p>
-      <div class="w-full flex justify-between"></div>
+      <p class="list-group text-base">{{content}}</p>
+    </div>
 </article>
+
+{{!-- Diana Salas --}}
