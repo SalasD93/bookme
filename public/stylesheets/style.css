@@ -55,6 +55,12 @@ footer {
   font-size: 110%;
 }
 
+/* This creates a scrollable area when there is more content than space */
+.list-group {
+  height:50px;
+  overflow-y: auto;
+}
+
 @media screen and (max-width: 768px) {
   .nav-a-font {
     font-size: 2rem;
