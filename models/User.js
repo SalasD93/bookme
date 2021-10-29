@@ -4,7 +4,6 @@ const sequelize = require("../config/connection");
 
 // Create user model
 class User extends Model {
-  // Need method to check pw
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
@@ -12,7 +11,6 @@ class User extends Model {
 
 // Create fields and columns for User model here
 User.init(
-  // Need to add hooks
   {
     id: {
       type: DataTypes.INTEGER,
@@ -31,10 +29,6 @@ User.init(
       validate: {
         isEmail: true,
       },
-    },
-    avatar: {
-      type: DataTypes.TEXT,
-      defaultValue: "https://res.cloudinary.com/dxqvdgvul/image/upload/v1632066194/defaultAvatar_wgzwzz.jpg",
     },
     zip_code: {
       type: DataTypes.INTEGER,

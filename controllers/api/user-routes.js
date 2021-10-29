@@ -1,7 +1,5 @@
 const router = require("express").Router();
-const cloudinary = require("../../utils/cloudinary");
-const upload = require("../../utils/multer");
-const { User, Post, Book, BookClub, BookClubMember, Comment, Vote, Location } = require("../../models");
+const { User, Post, Book, Comment, Location } = require("../../models");
 
 // get all users
 router.get("/", (req, res) => {
@@ -41,25 +39,8 @@ router.get("/:id", (req, res) => {
       },
       {
         model: Book,
-        attributes: ["title"],
-        through: Vote,
-        as: "voted_books",
-      },
-      {
-        model: Book,
         attributes: ["id", "title", "author", "created_at"],
-      },
-      {
-        model: BookClub,
-        as: "started_clubs",
-        attributes: ["name", "genre", "description", "owner_id"],
-      },
-      {
-        model: BookClub,
-        attributes: ["name", "owner_id"],
-        as: "joined_clubs",
-        through: BookClubMember,
-      },
+      }
     ],
   })
     .then((dbUserData) => {
@@ -75,15 +56,11 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", upload.any(), async (req, res) => {
-  // const imgUpload = await cloudinary.uploader.upload(req.files[0].path);
-
+router.post("/", async (req, res) => {
   await User.create({
     username: req.body.username,
     email: req.body.email,
-    // avatar: imgUpload.url,
-    // zip_code: req.body.zip_code,
-    password: req.body.password,
+    password: req.body.password
   })
     .then((dbUserData) => {
       req.session.save(() => {
@@ -140,8 +117,6 @@ router.post("/logout", (req, res) => {
 
 router.put("/:id", (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-
-  // pass in req.body instead to only update what's passed through
   User.update(req.body, {
     individualHooks: true,
     where: {

@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
 const sequelize = require("../config/connection");
 
-// Create user model
+// Create location model
 class Location extends Model {}
 
 // Create fields and columns for Location model here

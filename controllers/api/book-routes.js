@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
-const { User, Book, Vote } = require("../../models");
+const { User, Book } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // get all books
@@ -11,8 +11,7 @@ router.get("/", (req, res) => {
       "id",
       "title",
       "author",
-      "created_at",
-      [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE book.id = vote.book_id)"), "vote_count"],
+      "created_at"
     ],
     include: [
       {
@@ -38,8 +37,7 @@ router.get("/:id", (req, res) => {
       "id",
       "title",
       "author",
-      "created_at",
-      [sequelize.literal("(SELECT COUNT(*) FROM vote WHERE book.id = vote.book_id)"), "vote_count"],
+      "created_at"
     ],
     include: [
       {
@@ -70,18 +68,6 @@ router.post("/", withAuth, (req, res) => {
     user_id: req.session.user_id,
   })
     .then((dbBookData) => res.json(dbBookData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-// commented out incase needed later
-router.put("/upvote", withAuth, (req, res) => {
-  // custom static method created in models/Book.js
-  console.log('======================');
-  Book.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-    .then((updatedVoteData) => res.json(updatedVoteData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
