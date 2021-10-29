@@ -9,17 +9,6 @@ async function getCoordinates(event) {
     const longitude = convertedZip.results[0].geometry.location.lng;
     const zIndex = Math.floor(Math.random() * 5) + 1;
 
-    // const coords = await fetch(`/api/location`, {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //         latitude,
-    //         longitude,
-    //         zIndex
-    //     }),
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     }
-    // });
     return initMap(latitude, longitude);
 };
 

@@ -1,54 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <link rel="stylesheet" href="/stylesheets/tailwind.css">
-  <link rel="stylesheet" href="/stylesheets/modal.css">
-  <link rel="stylesheet" href="/stylesheets/map.css">
-  <title>BookMe!</title>
-  {{!-- <link rel="shortcut icon" type="image/jpg" src="../../public/img/BookHeartPin2.png"/> --}}
-</head>
-
-<body>
-  <header class="font-semibold tracking-tight flex-col bg-gray-700">
-    <nav class="text-xl w-full flex justify-between">
-      <h1 class="mt-2">
-        <a href="/" class="nav-a-font mt-2 font-semibold tracking-tight text-white">Book<span class="nav-a-font text-green-500">Me</span></a>
-      </h1>
-      {{#if loggedIn}}
-      <button id="logout" class="btn-no-style text-2xl font-semibold tracking-tight text-white">Logout</button>
-      {{else}}
-      <a href="/login" id="loginDisplay" class="text-2xl font-semibold tracking-tight text-white">Login</a>
-      {{/if}}
-    </nav>
-    <ul class="flex header-links">
-      <li class="flex-1 px-4 text-green-500 hover:text-green-700 transform transition duration-600 hover:scale-125">
-        <a href="/">Homepage</a>
-      </li>
-      <li class="flex-1 px-4 text-green-500 hover:text-green-700 transform transition duration-600 hover:scale-125">
-        <a href="/dashboard">Dashboard</a>
-      </li>
-      {{#if loggedIn}}
-      <li class="flex-1 px-4 text-green-500 hover:text-green-700 transform transition duration-600 hover:scale-125">
-        <a id="near-me" href="/location">Near Me</a>
-      </li>
-      {{/if}}
-    </ul>
-  </header>
-  <div class="bg-gray-400">
-  <main>
-    {{{ body }}}
-  </main>
-  <footer class="bg-gray-700 text-white">
-    Made with ❤ 2021 All rights reserved. Diana Salas | Abhinav Biju | Malik Harris | Tysean Hill.
-  </footer>
-  </div>
-  {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  {{/if}}
-</body>
-
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/tailwind.css">
+    <link rel="stylesheet" href="/stylesheets/modal.css">
+    <link rel="stylesheet" href="/stylesheets/map.css">
+    <title>BookMe!</title>
+  </head>
+  <body>
+    <header class="font-semibold tracking-tight flex-col bg-gray-700">
+      <nav class="text-xl w-full flex justify-between">
+        <h1 class="mt-2">
+          <a href="/" class="nav-a-font mt-2 font-semibold tracking-tight text-white">Book<span class="nav-a-font text-green-500">Me</span></a>
+        </h1>
+        {{#if loggedIn}}
+        <button id="logout" class="btn-no-style text-2xl font-semibold tracking-tight text-white">Logout</button>
+        {{else}}
+        <a href="/login" id="loginDisplay" class="text-2xl font-semibold tracking-tight text-white">Login</a>
+        {{/if}}
+      </nav>
+      <ul class="flex header-links">
+        <li class="flex-1 px-4 text-green-500 hover:text-green-700 transform transition duration-600 hover:scale-125">
+          <a href="/">Homepage</a>
+        </li>
+        <li class="flex-1 px-4 text-green-500 hover:text-green-700 transform transition duration-600 hover:scale-125">
+          <a href="/dashboard">Dashboard</a>
+        </li>
+        {{#if loggedIn}}
+        <li class="flex-1 px-4 text-green-500 hover:text-green-700 transform transition duration-600 hover:scale-125">
+          <a id="near-me" href="/location">Near Me</a>
+        </li>
+        {{/if}}
+      </ul>
+    </header>
+    <div class="bg-gray-400">
+    <main>
+      {{{ body }}}
+    </main>
+    <footer class="bg-gray-700 text-white">
+      Made with ❤ 2021 All rights reserved | Diana Salas
+    </footer>
+    </div>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+  </body>
 </html>
