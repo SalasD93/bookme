@@ -9,17 +9,17 @@ async function getCoordinates(event) {
     const longitude = convertedZip.results[0].geometry.location.lng;
     const zIndex = Math.floor(Math.random() * 5) + 1;
 
-    const coords = await fetch(`/api/location`, {
-        method: 'POST',
-        body: JSON.stringify({
-            latitude,
-            longitude,
-            zIndex
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    // const coords = await fetch(`/api/location`, {
+    //     method: 'POST',
+    //     body: JSON.stringify({
+    //         latitude,
+    //         longitude,
+    //         zIndex
+    //     }),
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     }
+    // });
     return initMap(latitude, longitude);
 };
 
@@ -70,7 +70,7 @@ function initMap(latitude, longitude) {
 // This creates the markers for the map
 async function setMarkers(map) {
     // Get the user information to use in the markers
-    let response = await fetch('/api/location', (data) => {
+    let response = await fetch('/api/users', (data) => {
         method: 'GET'
     });
     const users = await response.json();
@@ -96,22 +96,24 @@ async function setMarkers(map) {
     // Iterates through all the users and displays the ones local to center
     for (let i = 0; i < users.length; i++) {
         const user = users[i];
-        let userLat = Number(user.latitude);
-        let userLng = Number(user.longitude);
-
-        const marker = new google.maps.Marker({
-            position: { lat: userLat, lng: userLng },
-            map,
-            icon: image,
-            shape: shape,
-            title: user[5],
-            zIndex: zIndex
-        });
-        // Add a click listener for each marker
-        marker.addListener("click", () => {
-            // Need to add user info to markers
-            console.log("Marker clicked");
-        });
+        if (user.location) {
+            let userLat = Number(user.location.latitude);
+            let userLng = Number(user.location.longitude);
+            const marker = new google.maps.Marker({
+                position: { lat: userLat, lng: userLng },
+                map,
+                icon: image,
+                shape: shape,
+                title: user[5],
+                zIndex: zIndex
+            });
+            // Add a click listener for each marker
+            marker.addListener("click", () => {
+                // Need to add user info to markers
+                console.log("Marker clicked");
+            });
+        }
+        // else user.zip convert
     }
     
 };

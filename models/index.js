@@ -20,7 +20,7 @@ Post.belongsTo(User, {
 
 // ------------------------
 
-User.hasMany(Location, {
+User.hasOne(Location, {
   foreignKey: "user_id",
   onDelete: "SET NULL",
 });

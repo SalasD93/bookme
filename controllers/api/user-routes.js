@@ -1,12 +1,17 @@
 const router = require("express").Router();
 const cloudinary = require("../../utils/cloudinary");
 const upload = require("../../utils/multer");
-const { User, Post, Book, BookClub, BookClubMember, Comment, Vote } = require("../../models");
+const { User, Post, Book, BookClub, BookClubMember, Comment, Vote, Location } = require("../../models");
 
 // get all users
 router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
+    include: [
+      {
+        model: Location,
+    }
+  ]
   })
     .then((dbUserData) => res.json(dbUserData))
     .catch((err) => {
