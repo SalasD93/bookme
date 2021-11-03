@@ -3,7 +3,8 @@
 
 ## Description
 
-For project 2 of the UM Coding Bootcamp, I had to create a web application using backend api routes, server, and database. I also had to incorporate a user-friendly mobile responsive frontend using handlebars, home routes, and JavaScript. Password encryption was required to successfully store a user to the database. We incorporated new CSS framework, Tailwind, to style the frontend.
+I have created a web application using backend api routes, server, and database. I incorporated a user-friendly mobile responsive frontend using handlebars, home routes, and JavaScript. Password encryption was used to successfully store a user in the database. We incorporated a CSS framework, Tailwind, to style the frontend. This application is for selling and buying used books in your area after creating an account. It is just a prototype at the moment. When logged in, you can see posted books for sale, and use a map to see users snear your current location. For development purposes, the seeded users are in one location. To see these users on the map, please type the zip code 33773 in the search box. I integrated a Google Maps API that utilizers custom markers to display users on the map.
+This is an ongoing project with plans of future development.
 
 
 ## Table of Contents
@@ -60,6 +61,8 @@ mysql -u root -p
 ---->source db/schema.sql
 npm run seed
 npm start
+
+navigate to localhost:3301 in your browser
 ```
 
 ## License
